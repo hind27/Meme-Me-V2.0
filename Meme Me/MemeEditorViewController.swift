@@ -34,9 +34,8 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        camerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         //check if camera is not available //simulator
-        
+        camerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,7 +62,8 @@ UINavigationControllerDelegate , UITextFieldDelegate {
         //pass the ActivityViewController a memedImage as an activity item
         activityViewController.completionWithItemsHandler = { activity , completed , items, error in
             if completed
-            {    // seve the image
+            {
+                // seve the image
                 self.save()
                 //Dismiss the Activity View
                 self.dismiss(animated: true, completion: nil)
@@ -73,18 +73,22 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     }
     //MAEK: -Textfelid
     
-    let memeTextAttributes: [String: Any] = [
-        NSAttributedStringKey.strokeColor.rawValue: UIColor.white,
-        NSAttributedStringKey.foregroundColor.rawValue: UIColor.black,
-        NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedStringKey.strokeWidth.rawValue:  -4
-    ]
+    
     
     func setupTextField(_ textField: UITextField, text: String) {
+        let memeTextAttributes: [String: Any] = [
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.white,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.black,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.strokeWidth.rawValue:  -4
+        ]
+        
         textField.delegate = self
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center
         textField.text = text
+        
+       
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
