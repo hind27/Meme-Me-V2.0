@@ -26,16 +26,18 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       imagePicker.contentMode = .scaleAspectFit
-         actionButton.isEnabled = false
+        imagePicker.contentMode = .scaleAspectFit
+        actionButton.isEnabled = false
         setupTextField(topTextField, text: "TOP")
         setupTextField(bottomTextField, text: "BOTTOM")
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //check if camera is not available //simulator
-        camerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        if !(UIImagePickerController.isSourceTypeAvailable(.camera))
+        { //check if camera is not available //simulator
+            camerButton.isEnabled = false
+        }
         subscribeToKeyboardNotifications()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,7 +45,8 @@ UINavigationControllerDelegate , UITextFieldDelegate {
         unsubscribeFromKeyboardNotifications()
     }
     
-   
+   //MARK -: cancel
+    
     @IBAction func cancelmeme(_ sender: Any) {
         actionButton.isEnabled = false
         imagePicker.image = nil
@@ -52,6 +55,8 @@ UINavigationControllerDelegate , UITextFieldDelegate {
         toptoolbar.resignFirstResponder()
         bottomToolbar.resignFirstResponder()
     }
+    //MARK -: Sharing a meme
+    
     @IBAction func sharememe(_ sender: Any) {
         let memeimage = generateMemedImage()
         //define an instance of the ActivityViewController
@@ -99,6 +104,7 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     @IBAction func pickAnImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .overCurrentContext
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
@@ -106,7 +112,7 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-      
+       imagePicker.modalPresentationStyle = .overCurrentContext
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -164,7 +170,7 @@ UINavigationControllerDelegate , UITextFieldDelegate {
         bottomToolbar.isHidden = hidden
     }
     
-    // MARK: - Keyboar
+    // MARK: - Keyboard
     
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillHide),
@@ -186,16 +192,17 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification as Notification) // Move view  upward
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = -(getKeyboardHeight(notification as Notification))
+        }// Move view  upward
     }
     
     @objc func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y = 0 // Move view to original position
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0 // Move view to original position
+          }
+    
     }
-    
-    
-    //MARK -: Sharing a meme
-    
-    
-}
 
+
+}
