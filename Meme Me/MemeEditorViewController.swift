@@ -34,10 +34,9 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !(UIImagePickerController.isSourceTypeAvailable(.camera))
-        { //check if camera is not available //simulator
-            camerButton.isEnabled = false
-        }
+        camerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        //check if camera is not available //simulator
+        
         subscribeToKeyboardNotifications()
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,17 +101,11 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     //MARK: - pickAnImage
     
     @IBAction func pickAnImage(_ sender: Any) {
+        let button = sender as! UIBarButtonItem
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.modalPresentationStyle = .overCurrentContext
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-       imagePicker.modalPresentationStyle = .overCurrentContext
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = button.tag == 0 ? .camera : .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     

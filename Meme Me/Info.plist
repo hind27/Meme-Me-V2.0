@@ -8,6 +8,8 @@
 	<string>$(PRODUCT_NAME)camera use</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME)photo use</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Savephoto</string>
 	<key>CFBundleDisplayName</key>
 	<string>MemeMe</string>
 	<key>CFBundleExecutable</key>
