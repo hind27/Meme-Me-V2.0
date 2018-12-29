@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
+class MemeViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate , UITextFieldDelegate {
     
     @IBOutlet weak var actionButton: UIBarButtonItem!
@@ -37,6 +37,9 @@ UINavigationControllerDelegate , UITextFieldDelegate {
         //check if camera is not available //simulator
         camerButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
+        tabBarController?.tabBar.isHidden = true
+       
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -73,12 +76,10 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     }
     //MAEK: -Textfelid
     
-    
-    
     func setupTextField(_ textField: UITextField, text: String) {
         let memeTextAttributes: [String: Any] = [
-            NSAttributedStringKey.strokeColor.rawValue: UIColor.white,
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.black,
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSAttributedStringKey.strokeWidth.rawValue:  -4
         ]
@@ -140,10 +141,17 @@ UINavigationControllerDelegate , UITextFieldDelegate {
     func save() {
         let memeimage = generateMemedImage()
         // Create the meme
-        var meme = Meme(top: topTextField.text!,
+       let meme = Meme(top: topTextField.text!,
                         bottom: bottomTextField.text!,
                         image: imagePicker.image!,
                         memedImage: memeimage)
+        // Add it to the memes array in the Application Delegate
+      
+            let object = UIApplication.shared.delegate
+            let appDelegate = object as! AppDelegate
+            appDelegate.memes.append(meme)
+        
+    
     }
     
     
