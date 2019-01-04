@@ -23,6 +23,7 @@ class SentMemesCollectionVC: UICollectionViewController {
         super.viewWillAppear(animated)
          collectionView?.reloadData()
         tabBarController?.tabBar.isHidden = false
+        navigationController?.isNavigationBarHidden = false
        
     }
     

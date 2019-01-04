@@ -24,8 +24,7 @@ class SentMemesTableViewController: UITableViewController{
         super.viewDidLoad()
        
         navigationItem.title = "Sent Memes"
-        
-        
+    
     }
 
    

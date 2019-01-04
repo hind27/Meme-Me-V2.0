@@ -251,7 +251,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0RH-1R-n75">
-                                            <rect key="frame" x="22" y="16" width="150" height="50.5"/>
+                                            <rect key="frame" x="22" y="16" width="150" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="8RZ-YJ-GWQ"/>
                                                 <constraint firstAttribute="height" constant="150" id="gza-gW-1To"/>
@@ -259,9 +259,6 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXH-NP-kZi">
                                             <rect key="frame" x="192" y="11" width="167" height="20.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="167" id="UVA-D5-sL2"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -311,7 +308,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="mOJ-cV-aaV" kind="relationship" relationship="viewControllers" id="HMD-Lf-tXg"/>
-                        <segue destination="yNN-WG-cYO" kind="relationship" relationship="viewControllers" id="b3E-3A-KoO"/>
+                        <segue destination="yNN-WG-cYO" kind="relationship" relationship="viewControllers" id="n80-cC-pxu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwU-G0-e5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,7 +361,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="flowLayout" destination="EnZ-oD-iX4" id="rfG-So-NVO"/>
+                        <outlet property="flowLayout" destination="EnZ-oD-iX4" id="fz6-t8-P3s"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgM-Jq-zsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -456,6 +453,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TNr-t9-GMD"/>
+        <segue reference="g8A-IS-wgo"/>
     </inferredMetricsTieBreakers>
 </document>
