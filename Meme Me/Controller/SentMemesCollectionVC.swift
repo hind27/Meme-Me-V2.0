@@ -19,8 +19,8 @@ class SentMemesCollectionVC: UICollectionViewController {
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
          collectionView?.reloadData()
         tabBarController?.tabBar.isHidden = false
         navigationController?.isNavigationBarHidden = false
@@ -54,6 +54,7 @@ class SentMemesCollectionVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return the number of items
+        
         return memes.count
     }
     

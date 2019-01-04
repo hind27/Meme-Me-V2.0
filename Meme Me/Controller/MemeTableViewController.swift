@@ -9,31 +9,28 @@
 import UIKit
 
 class SentMemesTableViewController: UITableViewController{
-   
+  
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tabBarController?.tabBar.isHidden = false
         navigationController?.isNavigationBarHidden = false
         tableView?.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         navigationItem.title = "Sent Memes"
-    
     }
 
    
-    
-
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
        return memes.count
     }
 
