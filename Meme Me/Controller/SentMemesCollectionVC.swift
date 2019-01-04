@@ -15,14 +15,13 @@ class SentMemesCollectionVC: UICollectionViewController {
     var memes: [Meme] {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
-
-    @IBOutlet var memecollectionView: UICollectionView!
+  
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        memecollectionView!.reloadData()
+         collectionView?.reloadData()
         tabBarController?.tabBar.isHidden = false
        
     }
@@ -31,6 +30,11 @@ class SentMemesCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Sent Memes"
+        setDefaultUIState()
+    }
+    
+    private func setDefaultUIState() {
+       
         let space:CGFloat
         let dimension :CGFloat
         if (UIDeviceOrientationIsLandscape(UIDevice.current.orientation)) {
@@ -45,17 +49,15 @@ class SentMemesCollectionVC: UICollectionViewController {
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
-
-    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return the number of items
-        return  self.memes.count
+        return memes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomMemeCell", for: indexPath) as! CollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"SentMemesCollectionViewCell", for: indexPath) as! CollectionCell
         // Set the image
         let image = memes[indexPath.row]
         cell.cellImageView?.image = image.memedImage
@@ -64,7 +66,7 @@ class SentMemesCollectionVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Grab the DetailVC from Storyboard
-        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier:"DetailViewController") as! DetailViewController
         let me = memes[(indexPath as NSIndexPath).row]
         //Populate view controller with data from the selected item
         detailController.memes = me

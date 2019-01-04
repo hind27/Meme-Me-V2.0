@@ -25,6 +25,7 @@ class SentMemesTableViewController: UITableViewController{
        
         navigationItem.title = "Sent Memes"
         
+        
     }
 
    
@@ -43,7 +44,8 @@ class SentMemesTableViewController: UITableViewController{
         // Set the image
         let meme = memes[indexPath.row]
         cell.memeImage?.image = meme.memedImage
-        cell.textLabel?.text = meme.bottom + "...." + meme.top
+        cell.memeImage?.contentMode = UIViewContentMode.scaleAspectFit
+        cell.label?.text = meme.bottom + "...." + meme.top
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

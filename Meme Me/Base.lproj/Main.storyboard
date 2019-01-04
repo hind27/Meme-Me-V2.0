@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -242,25 +243,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTablecell" rowHeight="75" id="IBR-6f-DT0" customClass="TableCell" customModule="Meme_Me" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTablecell" rowHeight="101" id="IBR-6f-DT0" customClass="TableCell" customModule="Meme_Me" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IBR-6f-DT0" id="325-Re-4uk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0RH-1R-n75">
-                                            <rect key="frame" x="22" y="5" width="151" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0RH-1R-n75">
+                                            <rect key="frame" x="22" y="16" width="150" height="50.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="8RZ-YJ-GWQ"/>
+                                                <constraint firstAttribute="height" constant="150" id="gza-gW-1To"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXH-NP-kZi">
-                                            <rect key="frame" x="193" y="11" width="143" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXH-NP-kZi">
+                                            <rect key="frame" x="192" y="11" width="167" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="167" id="UVA-D5-sL2"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0RH-1R-n75" firstAttribute="leading" secondItem="325-Re-4uk" secondAttribute="leadingMargin" constant="6" id="6Ql-p1-mep"/>
+                                        <constraint firstItem="HXH-NP-kZi" firstAttribute="top" secondItem="325-Re-4uk" secondAttribute="topMargin" id="6ee-hI-uXg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HXH-NP-kZi" secondAttribute="bottom" constant="40" id="7wD-Pq-nXY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0RH-1R-n75" secondAttribute="bottom" constant="5" id="aHM-3U-0dI"/>
+                                        <constraint firstItem="0RH-1R-n75" firstAttribute="top" secondItem="325-Re-4uk" secondAttribute="topMargin" constant="5" id="bpZ-Ua-2J1"/>
+                                        <constraint firstItem="HXH-NP-kZi" firstAttribute="trailing" secondItem="325-Re-4uk" secondAttribute="trailingMargin" id="foH-tA-UeS"/>
+                                        <constraint firstItem="HXH-NP-kZi" firstAttribute="leading" secondItem="0RH-1R-n75" secondAttribute="trailing" constant="20" id="khC-Yu-KRk"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="HXH-NP-kZi" id="bLN-Tf-fcg"/>
@@ -283,7 +298,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzX-UJ-V8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2953" y="-922"/>
+            <point key="canvasLocation" x="2952.8000000000002" y="-922.48875562218893"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rRP-xZ-P62">
@@ -312,17 +327,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EnZ-oD-iX4">
-                            <size key="itemSize" width="200" height="136"/>
+                            <size key="itemSize" width="257" height="136"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="mIa-rl-gnF" customClass="CollectionCell">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="136"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SentMemesCollectionViewCell" id="mIa-rl-gnF" customClass="CollectionCell">
+                                <rect key="frame" x="59" y="0.0" width="257" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="136"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="257" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ip-1N-CdE">
@@ -333,7 +348,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="cellImageView" destination="2Ip-1N-CdE" id="DM0-UR-Iqy"/>
-                                    <segue destination="i3P-XV-6QX" kind="show" identifier="" id="8qr-cW-byL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -351,12 +365,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="EnZ-oD-iX4" id="rfG-So-NVO"/>
-                        <outlet property="memecollectionView" destination="Yxd-hz-eiU" id="7re-iw-NMt"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CgM-Jq-zsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="-43"/>
+            <point key="canvasLocation" x="2780" y="-43.628185907046479"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="64c-oY-Qou">
@@ -380,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7b-eN-3kp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613.5999999999999" y="303.59820089955025"/>
+            <point key="canvasLocation" x="3597" y="103"/>
         </scene>
         <!--TableView-->
         <scene sceneID="Bc9-OJ-mBO">
@@ -443,6 +456,6 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g8A-IS-wgo"/>
+        <segue reference="TNr-t9-GMD"/>
     </inferredMetricsTieBreakers>
 </document>
